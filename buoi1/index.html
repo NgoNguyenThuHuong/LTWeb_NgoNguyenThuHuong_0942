@@ -1,154 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trang Web Bán Hàng</title>
+    <title>GameZone | Cửa Hàng Máy Chơi Game</title>
 
-    <!-- Sử dụng Bootstrap CSS -->
+    <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome (Icon) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #00f2ff; /* Màu xanh neon */
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Navbar tùy chỉnh */
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            border-bottom: 1px solid #333;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--primary-color) !important;
+        }
+
+        /* Card Sản phẩm phong cách Gaming */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            transition: all 0.4s ease;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        }
+
+        .card-img-top {
+            height: 220px;
+            object-fit: contain;
+            padding: 20px;
+            background: #252525;
+        }
+
+        .price-tag {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+
+        .btn-gaming {
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-gaming:hover {
+            filter: brightness(1.2);
+            box-shadow: 0 0 15px rgba(0, 198, 255, 0.5);
+        }
+
+        /* Sidebar trang trí */
+        .sidebar-section {
+            background: #1a1a1a;
+            border-radius: 15px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid #333;
+        }
+
+        /* Badge Hot */
+        .badge-hot {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4757;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+    </style>
 </head>
 
 <body>
-    <header class="bg-success text-white text-center py-4">
-        <h1>Trang Web Bán Hàng</h1>
-    </header>
-
-    <!-- Menu điều hướng sử dụng Bootstrap Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Trang Chủ</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#"><i class="fas fa-gamepad me-2"></i>GAME<span class="text-white">ZONE</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sản Phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Liên Hệ</a>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">TRANG CHỦ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">PLAYSTATION</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">NINTENDO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">XBOX</a></li>
+                    <li class="nav-item ps-lg-4">
+                        <a class="nav-link text-info" href="#"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Banner Quảng Cáo -->
     <div class="container mt-4">
-        <div class="row">
+        <div class="p-5 text-center bg-dark rounded-4 shadow" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/id/488/1200/400') center/cover;">
+            <h1 class="display-4 fw-bold">NEXT-GEN GAMING</h1>
+            <p class="lead">Trải nghiệm những tựa game đỉnh cao với cấu hình mạnh mẽ nhất.</p>
+            <button class="btn btn-gaming px-5">KHÁM PHÁ NGAY</button>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row g-4">
             <!-- Danh sách sản phẩm -->
-            <div class="col-md-9">
-                <!-- Hiển thị sản phẩm bằng dạng dòng sản phẩm sử dụng Bootstrap Row và Col -->
+            <div class="col-lg-9">
+                <h3 class="mb-4 fw-bold"><i class="fas fa-fire text-danger me-2"></i>SẢN PHẨM MỚI NHẤT</h3>
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <!-- Sản phẩm 1 -->
+                    
+                    <!-- Máy 1: PS5 -->
                     <div class="col">
-                        <div class="card">
-                            <img src="https://picsum.photos/id/684/600/400" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Sản Phẩm 1</h5>
-                                <p class="card-text">Mô tả sản phẩm 1.</p>
-                                <p class="card-text">Giá: $100</p>
-                                <a href="#" class="btn btn-primary">Mua Ngay</a>
+                        <div class="card h-100 position-relative">
+                            <span class="badge-hot">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&q=80&w=400" class="card-img-top" alt="PS5">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">PlayStation 5 Slim</h5>
+                                <p class="card-text text-secondary small">Phiên bản ổ đĩa với ổ cứng 1TB tốc độ cao.</p>
+                                <div class="mt-auto">
+                                    <p class="price-tag mb-3">12.490.000đ</p>
+                                    <button class="btn btn-gaming w-100">MUA NGAY</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Sản phẩm 2 -->
+                    <!-- Máy 2: Nintendo Switch -->
                     <div class="col">
-                        <div class="card">
-                            <img src="https://picsum.photos/id/1025/600/400" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Sản Phẩm 2</h5>
-                                <p class="card-text">Mô tả sản phẩm 2.</p>
-                                <p class="card-text">Giá: $150</p>
-                                <a href="#" class="btn btn-primary">Mua Ngay</a>
+                        <div class="card h-100">
+                            <img src="https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&q=80&w=400" class="card-img-top" alt="Switch">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">Nintendo Switch OLED</h5>
+                                <p class="card-text text-secondary small">Màn hình OLED rực rỡ, chơi game mọi lúc mọi nơi.</p>
+                                <div class="mt-auto">
+                                    <p class="price-tag mb-3">7.890.000đ</p>
+                                    <button class="btn btn-gaming w-100">MUA NGAY</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Sản phẩm 3 -->
+                    <!-- Máy 3: Xbox -->
                     <div class="col">
-                        <div class="card">
-                            <img src="https://picsum.photos/id/1060/600/400" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Sản Phẩm 3</h5>
-                                <p class="card-text">Mô tả sản phẩm 3.</p>
-                                <p class="card-text">Giá: $120</p>
-                                <a href="#" class="btn btn-primary">Mua Ngay</a>
+                        <div class="card h-100">
+                            <img src="https://images.unsplash.com/photo-1605901309584-818e25960a8f?auto=format&fit=crop&q=80&w=400" class="card-img-top" alt="Xbox">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">Xbox Series X</h5>
+                                <p class="card-text text-secondary small">Cỗ máy chơi game mạnh mẽ nhất từ Microsoft.</p>
+                                <div class="mt-auto">
+                                    <p class="price-tag mb-3">13.200.000đ</p>
+                                    <button class="btn btn-gaming w-100">MUA NGAY</button>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Sản phẩm 4 -->
-                    <div class="col">
-                        <div class="card">
-                            <img src="https://picsum.photos/id/30/600/400" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Sản Phẩm 4</h5>
-                                <p class="card-text">Mô tả sản phẩm 4.</p>
-                                <p class="card-text">Giá: $80</p>
-                                <a href="#" class="btn btn-primary">Mua Ngay</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sản phẩm 5 -->
-                    <div class="col">
-                        <div class="card">
-                            <img src="https://picsum.photos/id/431/600/400" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Sản Phẩm 5</h5>
-                                <p class="card-text">Mô tả sản phẩm 5.</p>
-                                <p class="card-text">Giá: $200</p>
-                                <a href="#" class="btn btn-primary">Mua Ngay</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
             <!-- Sidebar -->
-            <div class="col-md-3">
-                <div class="bg-primary text-white p-3">
-                    <h5>Social Media</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Facebook</a></li>
-                        <li><a href="#" class="text-white">Twitter</a></li>
-                        <li><a href="#" class="text-white">Instagram</a></li>
-                        <li><a href="#" class="text-white">LinkedIn</a></li>
-                    </ul>
+            <div class="col-lg-3">
+                <div class="sidebar-section p-4 mb-4">
+                    <h5 class="fw-bold mb-3">DANH MỤC</h5>
+                    <div class="list-group list-group-flush bg-transparent">
+                        <a href="#" class="list-group-item bg-transparent text-white-50 border-secondary">Phụ kiện Gaming</a>
+                        <a href="#" class="list-group-item bg-transparent text-white-50 border-secondary">Đĩa Game PS5/PS4</a>
+                        <a href="#" class="list-group-item bg-transparent text-white-50 border-secondary">Tay cầm DualSense</a>
+                        <a href="#" class="list-group-item bg-transparent text-white-50 border-secondary">Thẻ quà tặng</a>
+                    </div>
+                </div>
+
+                <div class="bg-primary bg-opacity-10 p-4 rounded-4 border border-primary border-opacity-25">
+                    <h6 class="fw-bold text-primary"><i class="fas fa-truck-moving me-2"></i>GIAO HÀNG HỎA TỐC</h6>
+                    <p class="small mb-0 opacity-75">Nhận máy ngay trong 2 giờ tại nội thành Hà Nội & TP.HCM.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Phần footer -->
-    <div class="container mt-4">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="bg-dark text-white text-center py-4">
-                    <h3>Cột 1</h3>
-                    <p>Nội dung cột 1.</p>
+    <!-- Footer -->
+    <footer class="footer mt-5 py-5">
+        <div class="container">
+            <div class="row text-center text-md-start">
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold text-primary">GAMEZONE</h4>
+                    <p class="text-secondary small">Hệ thống bán lẻ máy chơi game chính hãng uy tín hàng đầu Việt Nam.</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="bg-dark text-white text-center py-4">
-                    <h3>Cột 2</h3>
-                    <p>Nội dung cột 2.</p>
+                <div class="col-md-4 mb-4 text-center">
+                    <h5 class="fw-bold">LIÊN HỆ</h5>
+                    <p class="text-secondary mb-1">Hotline: 1800 6789</p>
+                    <p class="text-secondary">Email: support@gamezone.vn</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="bg-dark text-white text-center py-4">
-                    <h3>Cột 3</h3>
-                    <p>Nội dung cột 3.</p>
+                <div class="col-md-4 mb-4 text-center text-md-end">
+                    <h5 class="fw-bold">THEO DÕI</h5>
+                    <div class="fs-4">
+                        <i class="fab fa-facebook me-3"></i>
+                        <i class="fab fa-youtube me-3"></i>
+                        <i class="fab fa-tiktok"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <!-- Sử dụng Bootstrap JS và Popper.js -->
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
