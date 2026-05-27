@@ -1,0 +1,25 @@
+﻿@model buoi3.Models.Category
+
+@{
+    ViewData["Title"] = "Xóa danh mục";
+}
+
+<div class="container my-4" style="max-width: 600px;">
+    <div class="alert alert-danger">
+        <h4>Xác nhận xóa danh mục này?</h4>
+        <p class="mb-0">Hành động này không thể hoàn tác và có thể ảnh hưởng đến sản phẩm thuộc danh mục này.</p>
+    </div>
+
+    <div class="card mt-3">
+        <div class="card-body">
+            <p><strong>ID danh mục:</strong> @Model.Id</p>
+            <p><strong>Tên danh mục:</strong> @Model.Name</p>
+        </div>
+    </div>
+
+    <form asp-action="DeleteConfirmed" method="post" class="mt-4">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
